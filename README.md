@@ -123,16 +123,38 @@ echo $HELLO
 
 We can print an env var using echo eg. `echo $Hello`
 
-#### Scoping of Env VArs
+#### Scoping of Env Vars
 
 When you open up new bash terminals in VSCode it will not be ware of env vars that have set in another window.
 
-### Persisting Env Vars in Gitpod
+#### Persisting Env Vars in Gitpod
 
 We can persist env vars into gitpod by storing them in Gitpod Secrets Storages
 
 ```
-gp env Hello='world
+gp env Hello='world'
 ```
 
 All future worksapces launched will set the envvaars for all bash terminals in the open workspace
+
+### AWS CLI Installation
+
+AWS CLI is installed for the proecct via the bash script [./bin/install_aws_cli.sh](./bin/install_aws_cli.sh)
+
+[Getting Started Install (AWS-CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-version.html)
+
+We can verify if AWS Creds are configured correctly by running following AWS CLI command:
+
+```sh aws sts get-caller-identity```
+
+If it's successful, it should return a json something like this:
+
+```json
+{
+    "UserId": "SomeAccountId",
+    "Account": "1234567890",
+    "Arn": "arn:aws:iam::1234567890:user/terraform-bootcamp"
+}
+```
+
+We'll need to generate AWS CLI creds from IAM User to use AWS CLI.
