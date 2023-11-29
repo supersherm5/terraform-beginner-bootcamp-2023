@@ -158,3 +158,59 @@ If it's successful, it should return a json something like this:
 ```
 
 We'll need to generate AWS CLI creds from IAM User to use AWS CLI.
+
+## Terraform Basics
+
+### Terraform Registry
+
+Terraform soruces their providers and modules from the Terraform registry which located at [Terraform Registry](https://registry.terraform.io)
+
+- **Providers** is an interface to APIs that will allow to create resoures
+- **Modules** are a way to make large amounts of terraform code modular, portable, and shareable.
+
+[Provider named random](https://registry.terraform.io/providers/hashicorp/random/latest)
+
+### Terraform Console
+
+We can see a list of all the Terraform commands by simply typing `terraform`
+
+#### Terraform Init
+
+At the start of a new terraform project we will run `terraform init` to download the binaries for the terraform providers we will use in the project.
+
+#### Terrafomr Plan
+
+This will geerate out a changeset, about the state of our infrastructiure and what will bechanged.
+
+We can ouput this changeset ie. "plan" to be passed to an apply, but often you can just ignore outputting.
+
+#### Terraform Apply 
+
+1
+`terraform apply`
+
+This will run a plan and pass the changeset to be execute by terraform.  Apply should prompt yes or no.
+
+If we want to automaticall approve an apply we can provide the auto approe flag eg. `terrafrom apply --auto-approve`
+
+### Terraform Lock Files
+
+`.terraform.lock.hcl` contans the locked versioning for the providers or modules that should be used with theis project.
+
+The Terrafor Lock File **should be commited** to your VCS, eg. Github
+
+### Terraform State Files
+
+`.terraform.tfstate` contain finformations aout the current state of your infrastructure.
+
+This file **shuld not be commited** to your VCS.
+
+This file cN CONTAIN SENSENTIVE DATA.
+
+If you lose this file, you lose knowning the state of your infrastructure.
+
+`.terraform.tfstate.backup` is the previous state file state.
+
+### Terraform Directory
+
+`.terraform` directoury contains binaries of terraform providers.
