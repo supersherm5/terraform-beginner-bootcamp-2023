@@ -1,5 +1,12 @@
 
 terraform {
+    cloud {
+    organization = "kryptonian-engineer"
+
+    workspaces {
+      name = "terra-house-krypton"
+    }
+  }
   required_providers {
     random = {
       source = "hashicorp/random"
