@@ -7,6 +7,7 @@ grep -q 'alias tf="terraform"' ~/.bash_aliases
 if [[ $? -ne 0 ]]; then
     # If the alias doesn't exist, append it
     echo 'alias tf="terraform"' >> ~/.bash_aliases
+    source ~/.bash_aliases # Refreshes session so, the alias will work
     echo "Terraform Alias added."
 else
     # In form the user the terraform alias exists already.
