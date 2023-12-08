@@ -250,3 +250,5 @@ Provide the following code (replace your token in the file):
 	}
 }
 ```
+
+We have automated this workaround with the flllowing bash script [bin/load_terraform_cloud.sh](bin/load_terraform_cloud.sh)
